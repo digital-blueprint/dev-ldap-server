@@ -1,5 +1,8 @@
 # Dev LDAP Server
 
+[GitHub](https://github.com/digital-blueprint/dev-ldap-server) |
+[Ldaptor Quickstart](https://ldaptor.readthedocs.io/en/latest/quickstart.html)
+
 ```bash
 # Install dependencies (or use direnv)
 nix-shell
