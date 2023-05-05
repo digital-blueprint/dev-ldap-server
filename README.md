@@ -15,4 +15,15 @@ ldapsearch -x -H ldap://localhost:8080 -bcn=bob,ou=people,dc=example,dc=org cn=b
 
 # Query server with python
 python3 client.py 
+
+# Import ldif file
+python3 import-from-dev.py
+```
+
+## Build docker image
+
+```bash
+nix-build build.nix
+docker load < result
+docker run -t python-docker:latest
 ```
