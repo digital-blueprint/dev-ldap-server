@@ -1,9 +1,16 @@
-FROM nixos/nix
+FROM debian:bullseye
 
-RUN nix-channel --update
-# RUN nix-build -A pythonFull '<nixpkgs>'
-RUN nix-env -iA nixpkgs.python311 nixpkgs.python311Packages.pip nixpkgs.python311Packages.ldaptor nixpkgs.python311Packages.ldap3 nixpkgs.python311Packages.python-dotenv nixpkgs.python311Packages.twisted
+ENV LANG C.UTF-8
+ENV DEBIAN_FRONTEND noninteractive
+
+# Basics
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 COPY server.py .
+RUN pip install ldaptor
 
-CMD [ "python", "server.py" ]
+CMD [ "python3", "server.py" ]
