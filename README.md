@@ -20,7 +20,16 @@ python3 client.py
 python3 import-from-dev.py
 ```
 
-## Build docker image
+## Docker
+
+```bash
+docker compose up
+
+# Query server with ldapsearch
+ldapsearch -x -H ldap://localhost:1389 -bcn=bob,ou=people,dc=example,dc=org cn=bob
+```
+
+## Build docker image (nix, experimental)
 
 ```bash
 nix-build build.nix
