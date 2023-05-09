@@ -6,8 +6,6 @@
       pkgs.python311
       pkgs.python311Packages.pip
       pkgs.python311Packages.ldaptor
-      pkgs.python311Packages.ldap3
-      pkgs.python311Packages.python-dotenv
     ];
 }
 
