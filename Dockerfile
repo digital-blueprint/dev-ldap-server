@@ -13,4 +13,4 @@ RUN pip install ldaptor
 COPY server.py .
 COPY data.ldif .
 
-CMD [ "python3", "server.py" ]
+CMD [ "python3", "server.py", "389" ]

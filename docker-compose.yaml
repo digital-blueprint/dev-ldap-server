@@ -6,5 +6,4 @@ services:
 #    volumes:
 #      - ./tug.ldif:/app/data.ldif
     ports:
-      - "127.0.0.1:1389:8080"
-
+      - "127.0.0.1:1389:389"
