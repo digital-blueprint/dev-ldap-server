@@ -12,22 +12,34 @@ python3 server.py
 
 # Query server with ldapsearch
 ldapsearch -x -H ldap://localhost:8080 -bcn=bob,ou=people,dc=example,dc=org cn=bob
-ldapsearch -x -H ldap://localhost:8080 -bcn=pbeke,ou=angehoerige,o=tug cn=pbeke
 
 # Query server with python
 python3 client.py 
 
-# Import ldif file
-python3 import-from-dev.py
+# Export ldif file from ldap01-dev.tugraz.at
+# This will create a new file called tug.ldif that can be mounted as a volume as /app/data.ldif
+python3 export-from-dev.py
 ```
 
 ## Docker
 
+### Run locally with docker compose
+
 ```bash
+# Build container
+docker compose build
+
+# Start container 
 docker compose up
 
 # Query server with ldapsearch
 ldapsearch -x -H ldap://localhost:1389 -bcn=bob,ou=people,dc=example,dc=org cn=bob
+```
+
+### Run just with docker
+
+```bash
+docker container run --rm ghcr.io/digital-blueprint/dev-ldap-server:latest
 ```
 
 ## Build docker image (nix, experimental)
