@@ -20,7 +20,7 @@ attributes = ['*']
 conn.search(search_base, search_filter, attributes=attributes)
 
 # Export the entries to an LDIF file
-with open('ldap_data.ldif', 'w', encoding='utf-8') as ldif_file:
+with open('tug.ldif', 'w', encoding='utf-8') as ldif_file:
     for entry in conn.entries:
         ldif_file.write(entry.entry_to_ldif())
 

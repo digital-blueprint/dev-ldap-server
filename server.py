@@ -64,7 +64,9 @@ userPassword: eekretsay
 class Tree:
     def __init__(self):
         global LDIF
-        self.f = io.BytesIO(LDIF)
+#         self.f = io.BytesIO(LDIF)
+        self.f = open("data.ldif", "rb")
+
         d = fromLDIFFile(self.f)
         d.addCallback(self.ldifRead)
 
