@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-RUN pip install ldaptor
+RUN pip install --break-system-packages ldaptor
 COPY server.py .
 COPY data.ldif .
 
